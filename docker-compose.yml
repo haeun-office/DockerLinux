@@ -1,0 +1,12 @@
+services:
+  web:
+    build: .
+    image: haeunoffice/myblog:latest
+    ports:
+      - "5001:5000"
+
+    volumes:
+      - blog_data:/app/data
+
+volumes:
+  blog_data:

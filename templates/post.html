@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>{{ post['title'] }}</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+<h1>{{ post['title'] }}</h1>
+<p class="date">{{ post['created_at'] }}</p>
+<div class="content">{{ post['content'] }}</div>
+<a class="back-link" href="{{ url_for('index') }}">← 목록으로</a>
+</body>
+</html>

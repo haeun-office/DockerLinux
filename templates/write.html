@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>새 글쓰기</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+<h1>새 글쓰기</h1>
+<form method="POST">
+    <input type="text" name="title" placeholder="제목" required>
+    <textarea name="content" placeholder="내용을 적어주세요" rows="12" required></textarea>
+    <button type="submit">저장</button>
+</form>
+<a class="back-link" href="{{ url_for('index') }}">← 목록으로</a>
+</body>
+</html>
