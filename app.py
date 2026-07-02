@@ -1,6 +1,10 @@
 from flask import Flask, render_template, request, redirect, url_for
 import sqlite3
 import os
+from datetime import datetime
+from zoneinfo import ZoneInfo
+
+KST = ZoneInfo("Asia/Seoul")
 
 app = Flask(__name__)
 
@@ -44,9 +48,10 @@ def write():
     if request.method == "POST":
         title = request.form["title"]
         content = request.form["content"]
+        created_at = datetime.now(KST).strftime("%Y-%m-%d %H:%M:%S")
         conn = get_db()
         conn.execute(
-            "INSERT INTO posts (title, content) VALUES (?, ?)", (title, content)
+            "INSERT INTO posts (title, content, created_at) VALUES (?, ?, ?)", (title, content, created_at)
         )
         conn.commit()
         conn.close()
